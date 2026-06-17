@@ -232,7 +232,7 @@ footer { background:#211c16; color:rgba(255,255,255,0.62); padding:3.2rem 0 2rem
 /* 気の流れ（全体背景にうっすら） */
 .ki-flow { position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; opacity:0.4; }
 .ki-flow svg { width:100%; height:100%; }
-body > nav, body > header, body > section, body > footer, body > .sticky { position:relative; z-index:1; }
+body > nav, body > header, body > section, body > footer { position:relative; z-index:1; }
 
 /* 背景の地紋（うっすら） */
 .shrine, .about, .assure { position:relative; }
@@ -765,12 +765,11 @@ document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.parentElement.classList.toggle('open');});});
 
 (function(){
-  const bar=document.getElementById('sticky'), hero=document.querySelector('.hero'), cta=document.querySelector('.linecta');
+  const bar=document.getElementById('sticky'), hero=document.querySelector('.hero');
   if(!bar) return;
-  let past=false, atCta=false;
-  if(hero) new IntersectionObserver(function(es){past=!es[0].isIntersecting;upd();},{threshold:0}).observe(hero);
-  if(cta) new IntersectionObserver(function(es){atCta=es[0].isIntersecting;upd();},{threshold:0.2}).observe(cta);
-  function upd(){ if(past&&!atCta)bar.classList.add('show'); else bar.classList.remove('show'); }
+  if(hero) new IntersectionObserver(function(es){
+    if(!es[0].isIntersecting) bar.classList.add('show'); else bar.classList.remove('show');
+  },{threshold:0}).observe(hero);
 })();
 </script>
 </body>
