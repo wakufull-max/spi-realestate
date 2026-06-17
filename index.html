@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>スピ不動産 | 家は「相性」で選ぶ。運の合う住まいを、四柱推命×九星気学で。</title>
+<meta name="description" content="家えらびは、ご縁さがし。四柱推命×九星気学で、あなたに運の合う家と買い時を見つける不動産屋です。鑑定もご相談も無料、まずはLINEから。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #2b2620;
+  --ink-soft: #3a342c;
+  --paper: #f1ede2;
+  --paper-2: #e9e5da;
+  --paper-3: #ded8c9;
+  --card: #faf7ef;
+  --line: #d6cfbe;
+  --line-strong: #bcb29c;
+  --text: #3a342c;
+  --text-muted: #7a7263;
+  --text-faint: #a39a87;
+  --gold: #c08a3a;
+  --gold-soft: #cf9d4f;
+  --vermil: #c0492f;
+  --green: #06C755;
+  --shadow-sm: 0 2px 14px rgba(74,67,56,0.06);
+  --shadow-md: 0 14px 40px rgba(74,67,56,0.12);
+  --shadow-lg: 0 30px 70px rgba(74,67,56,0.18);
+  --maxw: 1040px;
+  --LINE_URL: "LINE_URL_HERE";
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+body {
+  font-family:'Zen Kaku Gothic New','Noto Sans JP',sans-serif;
+  background:var(--paper); color:var(--text);
+  line-height:2.05; font-weight:400; font-feature-settings:"palt";
+  letter-spacing:0.03em; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  word-break:normal; line-break:strict; overflow-wrap:break-word;
+}
+.wrap { max-width:var(--maxw); margin:0 auto; padding:0 1.8rem; }
+.narrow { max-width:660px; }
+
+/* reveal */
+.reveal { opacity:0; transform:translateY(20px); transition:opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+.reveal.in { opacity:1; transform:none; }
+@media (prefers-reduced-motion:reduce){ .reveal{opacity:1;transform:none;transition:none} *{animation:none!important} html{scroll-behavior:auto} }
+
+/* type */
+.kicker { display:inline-block; font-size:0.74rem; font-weight:700; letter-spacing:0.2em; color:var(--gold); margin-bottom:1.1rem; }
+.kicker::before { content:'✦ '; }
+.h2 { font-weight:900; font-size:clamp(1.5rem,4vw,2.2rem); line-height:1.6; color:var(--ink); letter-spacing:0.02em; }
+.lead { font-size:1rem; color:var(--text-muted); line-height:2.05; margin-top:1.2rem; }
+
+section { padding:clamp(4rem,8vw,6.5rem) 0; }
+.center { text-align:center; }
+.center .lead { max-width:600px; margin-left:auto; margin-right:auto; }
+
+/* nav */
+nav { position:sticky; top:0; z-index:60; display:flex; justify-content:space-between; align-items:center;
+  padding:0.85rem 1.8rem; background:rgba(241,237,226,0.9); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--line); }
+.brand { display:flex; align-items:baseline; gap:0.5rem; text-decoration:none; flex-shrink:0; white-space:nowrap; }
+.brand b { font-weight:900; font-size:1.1rem; color:var(--ink); letter-spacing:0.06em; white-space:nowrap; }
+.brand span { font-size:0.6rem; letter-spacing:0.22em; color:var(--text-faint); font-weight:700; white-space:nowrap; }
+.nav-line { display:inline-flex; align-items:center; gap:0.45rem; background:var(--ink); color:var(--paper); text-decoration:none;
+  font-weight:700; font-size:0.82rem; padding:0.6rem 1.2rem; border-radius:100px; transition:transform .2s, background .2s; white-space:nowrap; flex-shrink:0; }
+.nav-line:hover { transform:translateY(-1px); background:var(--gold); }
+.nav-line .ic { display:inline-grid; place-items:center; width:auto; height:16px; padding:0 4px; border-radius:4px; background:#06C755; color:#fff; font-weight:900; font-size:0.5rem; letter-spacing:0.02em; flex-shrink:0; }
+.nav-line .full { display:inline; } .nav-line .short { display:none; }
+@media (max-width:480px){
+  nav { padding:0.7rem 1rem; }
+  .brand span { display:none; }
+  .nav-line { font-size:0.8rem; padding:0.55rem 1rem; }
+  .nav-line .full { display:none; } .nav-line .short { display:inline; }
+}
+
+/* buttons */
+.btn-line { display:inline-flex; align-items:center; justify-content:center; gap:0.6rem; background:var(--ink); color:var(--paper); text-decoration:none;
+  font-weight:900; font-size:1.04rem; padding:1.15rem 2.4rem; border-radius:100px; box-shadow:0 8px 0 rgba(74,67,56,0.3); transition:transform .18s, box-shadow .18s; }
+.btn-line:hover { transform:translateY(-2px); box-shadow:0 10px 0 rgba(74,67,56,0.3); background:#3a342c; }
+.btn-line:active { transform:translateY(4px); box-shadow:0 4px 0 rgba(74,67,56,0.3); }
+.btn-line .badge { display:inline-grid; place-items:center; width:auto; height:22px; padding:0 6px; border-radius:5px; background:#06C755; color:#fff; font-size:0.6rem; font-weight:900; letter-spacing:0.02em; }
+.btn-ghost { display:inline-flex; align-items:center; gap:0.5rem; color:var(--ink); text-decoration:none; font-weight:700; font-size:0.94rem;
+  border:1.5px solid var(--ink); padding:1.05rem 1.8rem; border-radius:100px; transition:background .2s, color .2s; }
+.btn-ghost:hover { background:var(--ink); color:var(--paper); }
+.cta-note { font-size:0.8rem; color:var(--text-faint); margin-top:0.9rem; }
+
+/* hero */
+.hero { padding:clamp(4.5rem,10vw,8rem) 0 clamp(4rem,8vw,6.5rem); position:relative; overflow:hidden; }
+.hero .wrap { position:relative; z-index:2; }
+.hero-kicker { display:inline-block; font-size:0.78rem; font-weight:700; letter-spacing:0.16em; color:var(--gold); margin-bottom:1.6rem; }
+.hero-h { font-weight:900; font-size:clamp(2rem,5.4vw,3.4rem); line-height:1.5; letter-spacing:0.02em; color:var(--ink); margin-bottom:1.6rem; }
+.hero-h .u { background:linear-gradient(transparent 64%, rgba(192,138,58,0.32) 64%); }
+.hero-sub { font-size:1.05rem; color:var(--text); line-height:2.1; max-width:560px; margin-bottom:2.4rem; }
+.hero-cta { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; }
+.hero-points { display:flex; flex-wrap:wrap; gap:1.4rem 2rem; margin-top:2.6rem; padding-top:2rem; border-top:1.5px dashed var(--line-strong); }
+.hero-points div { font-size:0.86rem; color:var(--text); font-weight:700; }
+.hero-points .g { color:var(--gold); margin-right:0.3rem; }
+.hero-deco { display:none; }
+.hero-headrow { display:flex; align-items:center; gap:2.5rem; }
+.hero-h-illust { flex-shrink:0; }
+.hero-h-illust svg { width:130px; height:auto; }
+@media (max-width:760px){ .hero-headrow { gap:1rem; } .hero-h-illust svg { width:84px; } }
+.hero-deco2 { position:absolute; left:-30px; bottom:8%; width:150px; opacity:0.32; pointer-events:none; color:var(--gold); }
+.hero-deco2 svg { width:100%; height:auto; }
+.hero-icons { display:flex; gap:1.6rem; margin-top:2.6rem; padding-top:2rem; border-top:1.5px dashed var(--line-strong); }
+.hero-icons svg { width:54px; height:54px; }
+@media (max-width:760px){ .hero-icons { gap:1.2rem; justify-content:center; } .hero-icons svg { width:46px; height:46px; } }
+.hero-cloud { position:absolute; pointer-events:none; opacity:0.3; color:var(--gold); }
+.hero-cloud svg { width:100%; height:auto; }
+.hero-cloud.c1 { top:14%; left:6%; width:120px; }
+.hero-cloud.c2 { top:24%; right:30%; width:90px; opacity:0.22; }
+@media (max-width:760px){ .hero-deco{ display:none } .hero-deco2{ display:none } .hero-cloud{ display:none } .hero-cta{ flex-direction:column; align-items:stretch } .btn-line,.btn-ghost{ width:100% } }
+
+/* shrine story */
+.shrine { background:rgba(233,229,218,0.92); position:relative; }
+.shrine .wrap { max-width:640px; }
+.shrine-title { font-weight:900; font-size:clamp(1.5rem,4vw,2rem); color:var(--ink); margin-bottom:0.3rem; }
+.shrine-illust { display:flex; justify-content:center; margin:2.2rem 0 2.6rem; }
+.shrine-illust svg { width:280px; max-width:78%; height:auto; }
+.shrine p { font-size:1.02rem; line-height:2.25; color:var(--text); margin-bottom:1.6rem; }
+.shrine p.q { font-weight:700; color:var(--ink); }
+.shrine p strong { font-weight:700; color:var(--ink); border-bottom:2px solid var(--gold); padding-bottom:1px; }
+.shrine-sub { font-weight:900; font-size:clamp(1.15rem,3vw,1.5rem); color:var(--ink); text-align:center; margin:2.6rem 0 1.6rem; }
+.shrine-rule { border:none; border-top:1.5px dashed var(--line-strong); margin:2.6rem 0; }
+.shrine-close { margin-top:2.6rem; padding-top:2.2rem; border-top:1.5px dashed var(--line-strong); }
+.shrine-close p { font-weight:700; font-size:1.06rem; line-height:2; color:var(--ink); }
+.shrine-close .sig { margin-top:1.1rem; font-size:0.86rem; color:var(--text-muted); letter-spacing:0.12em; }
+
+/* fears (家えらびで怖いこと) */
+.fears { background:rgba(241,237,226,0.88); }
+.fear-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:0.5rem; }
+.fear { background:var(--card); border:1.5px solid var(--line); border-radius:10px; padding:2rem 1.7rem; transition:transform .25s, box-shadow .25s, border-color .25s; }
+.fear:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); border-color:var(--line-strong); }
+.fear-ic { width:46px; height:46px; margin-bottom:1.1rem; color:var(--gold); }
+.fear-q { font-weight:900; font-size:1.08rem; color:var(--ink); margin-bottom:0.6rem; line-height:1.5; }
+.fear-d { font-size:0.9rem; color:var(--text-muted); line-height:1.85; }
+.fears-bridge { text-align:center; margin-top:2.8rem; font-weight:700; font-size:clamp(1.1rem,2.6vw,1.35rem); color:var(--ink); line-height:1.9; }
+.fears-bridge .g { color:var(--gold); }
+@media (max-width:760px){ .fear-grid{ grid-template-columns:1fr } }
+
+/* method (だから星を読む) */
+.method { background:var(--ink); color:var(--paper); }
+.method .h2 { color:#fff; }
+.method .kicker { color:var(--gold-soft); }
+.method .lead { color:rgba(255,255,255,0.72); }
+.method-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; margin-top:2.8rem; }
+.m-card { border:1.5px solid rgba(255,255,255,0.16); border-radius:10px; padding:2.4rem 2rem; }
+.m-card .n { font-size:0.78rem; font-weight:700; letter-spacing:0.14em; color:var(--gold-soft); margin-bottom:0.9rem; }
+.m-card h3 { font-weight:900; font-size:1.25rem; color:#fff; margin-bottom:0.9rem; }
+.m-card p { font-size:0.92rem; color:rgba(255,255,255,0.78); line-height:2; }
+.m-card p strong { color:var(--gold-soft); font-weight:700; }
+.method-join { text-align:center; margin-top:2.4rem; font-weight:700; font-size:1.08rem; color:#fff; }
+.method-join .g { color:var(--gold-soft); }
+@media (max-width:720px){ .method-grid{ grid-template-columns:1fr } }
+
+/* reading (鑑定でわかる3つ) */
+.reading { background:rgba(233,229,218,0.92); }
+.read-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.8rem; }
+.read-card { background:var(--card); border:1.5px solid var(--line); border-radius:10px; padding:2.2rem 1.8rem; text-align:center; transition:transform .25s, box-shadow .25s; }
+.read-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-md); }
+.read-ic { width:52px; height:52px; margin:0 auto 0.9rem; }
+.read-ic svg { width:100%; height:100%; }
+.read-l { font-size:0.72rem; font-weight:700; letter-spacing:0.12em; color:var(--gold); margin-bottom:0.5rem; }
+.read-t { font-weight:900; font-size:1.25rem; color:var(--ink); margin-bottom:0.9rem; }
+.read-d { font-size:0.88rem; color:var(--text-muted); line-height:1.95; }
+@media (max-width:760px){ .read-grid{ grid-template-columns:1fr } }
+
+/* steps */
+.steps { background:rgba(241,237,226,0.88); }
+.step-row { display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:2.8rem; }
+.step { padding:2rem 1.5rem; border-top:2px solid var(--ink); position:relative; }
+.step + .step { border-left:1.5px dashed var(--line-strong); }
+.step .n { font-size:1.5rem; font-weight:900; color:var(--gold); line-height:1; margin-bottom:0.5rem; }
+.step-ic { width:44px; height:44px; margin-bottom:0.7rem; }
+.step-ic svg { width:100%; height:100%; }
+.kasumi { display:flex; justify-content:center; padding:0.5rem 0; }
+.kasumi svg { width:120px; height:auto; color:var(--line-strong); }
+.step h3 { font-weight:900; font-size:1.06rem; color:var(--ink); margin-bottom:0.6rem; }
+.step p { font-size:0.88rem; color:var(--text-muted); line-height:1.9; }
+@media (max-width:680px){ .step-row{ grid-template-columns:1fr } .step+.step{ border-left:none } .step:nth-child(n+2){ border-top:1.5px dashed var(--line-strong) } }
+
+/* assure (安心) */
+.assure { background:rgba(233,229,218,0.92); }
+.assure-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.4rem; }
+.a-card { background:var(--card); border:1.5px solid var(--line); border-radius:10px; padding:2rem 1.7rem; text-align:center; }
+.a-ic { width:46px; height:46px; margin:0 auto 0.8rem; }
+.a-ic svg { width:100%; height:100%; }
+.a-t { font-weight:900; font-size:1.04rem; color:var(--ink); margin-bottom:0.6rem; }
+.a-d { font-size:0.86rem; color:var(--text-muted); line-height:1.85; }
+@media (max-width:760px){ .assure-grid{ grid-template-columns:1fr } }
+
+/* line cta */
+.linecta { background:var(--ink); color:var(--paper); text-align:center; position:relative; overflow:hidden; }
+.linecta .wrap { max-width:680px; position:relative; z-index:2; }
+.linecta .kicker { color:var(--gold-soft); }
+.linecta h2 { font-weight:900; font-size:clamp(1.6rem,4vw,2.4rem); color:#fff; line-height:1.6; margin-bottom:1.2rem; }
+.linecta h2 .g { color:var(--gold-soft); }
+.linecta p { color:rgba(255,255,255,0.78); line-height:2; margin-bottom:2.2rem; }
+.linecta-steps { display:flex; align-items:center; justify-content:center; gap:0.7rem; flex-wrap:wrap; margin-bottom:2rem; }
+.lc-step { display:flex; align-items:center; gap:0.5rem; font-size:0.86rem; font-weight:700; color:#fff; }
+.lc-step .nn { display:inline-grid; place-items:center; width:24px; height:24px; border-radius:50%; background:var(--gold); color:var(--ink); font-size:0.76rem; font-weight:900; }
+.lc-sep { color:var(--gold-soft); }
+.linecta .note { font-size:0.8rem; color:rgba(255,255,255,0.55); margin-top:1rem; }
+.linecta .btn-line { background:var(--gold); color:#fff; box-shadow:0 8px 0 rgba(120,86,30,0.5); }
+.linecta .btn-line:hover { background:var(--gold-soft); box-shadow:0 10px 0 rgba(120,86,30,0.5); }
+.linecta .btn-line .badge { background:#06C755; color:#fff; }
+
+/* faq */
+.faq { background:rgba(241,237,226,0.88); }
+.faq-list { max-width:760px; margin:2.4rem auto 0; border-top:1.5px solid var(--line); }
+.faq-item { border-bottom:1.5px solid var(--line); }
+.faq-q { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1.4rem 0.3rem; cursor:pointer; font-weight:700; color:var(--ink); font-size:0.96rem; }
+.faq-tg { color:var(--gold); font-size:1.3rem; flex-shrink:0; transition:transform .3s; line-height:1; }
+.faq-item.open .faq-tg { transform:rotate(45deg); }
+.faq-a { max-height:0; overflow:hidden; transition:max-height .35s ease, padding .35s ease; padding:0 0.3rem; font-size:0.9rem; color:var(--text-muted); line-height:2; }
+.faq-item.open .faq-a { max-height:340px; padding:0 0.3rem 1.4rem; }
+
+/* footer */
+footer { background:#211c16; color:rgba(255,255,255,0.62); padding:3.2rem 0 2rem; }
+.foot-top { display:flex; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
+.foot-brand b { font-weight:900; font-size:1.1rem; color:#fff; letter-spacing:0.06em; }
+.foot-brand p { font-size:0.84rem; line-height:1.9; margin-top:0.9rem; max-width:320px; }
+.foot-links { display:flex; gap:2.4rem; flex-wrap:wrap; }
+.foot-col h5 { font-size:0.72rem; letter-spacing:0.14em; color:var(--gold-soft); margin-bottom:0.9rem; font-weight:700; }
+.foot-col a { display:block; color:rgba(255,255,255,0.62); text-decoration:none; font-size:0.85rem; margin-bottom:0.5rem; transition:color .2s; }
+.foot-col a:hover { color:var(--gold-soft); }
+.foot-bottom { margin-top:2.6rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.1); font-size:0.74rem; color:rgba(255,255,255,0.4); line-height:1.8; }
+
+/* 気の流れ（全体背景にうっすら） */
+.ki-flow { position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; opacity:0.4; }
+.ki-flow svg { width:100%; height:100%; }
+body > nav, body > header, body > section, body > footer, body > .sticky { position:relative; z-index:1; }
+
+/* 背景の地紋（うっすら） */
+.shrine, .about, .assure { position:relative; }
+.shrine::before, .about::before, .assure::before {
+  content:''; position:absolute; inset:0; pointer-events:none; opacity:0.5;
+  background-image:radial-gradient(circle at 1px 1px, rgba(192,138,58,0.10) 1px, transparent 0);
+  background-size:22px 22px;
+}
+.shrine > .wrap, .about > .wrap, .assure > .wrap { position:relative; z-index:1; }
+.seigaiha { display:flex; justify-content:center; padding:0.4rem 0; opacity:0.6; }
+.seigaiha svg { width:160px; height:auto; color:var(--gold); }
+.bg-cut { position:absolute; pointer-events:none; opacity:0.08; z-index:0; }
+.bg-cut svg { width:100%; height:100%; }
+.story-cut { display:flex; justify-content:center; margin:0.6rem 0 1.2rem; }
+.story-cut svg { width:160px; height:auto; }
+.mini-ic { display:inline-block; width:20px; height:20px; vertical-align:-4px; margin-right:0.3rem; }
+.mini-ic svg { width:100%; height:100%; }
+.foot-torii { margin:0.8rem 0; }
+.foot-torii svg { width:56px; height:auto; }
+.linecta { position:relative; }
+
+/* chi（地気の具体例） */
+.chi { background:rgba(241,237,226,0.9); }
+.chi-illust { display:flex; justify-content:center; margin:1.6rem 0 2rem; }
+.chi-illust svg { width:340px; max-width:94%; height:auto; background:var(--card); border:1.5px solid var(--line); border-radius:10px; padding:1rem; }
+
+/* about（占術説明） */
+.about { background:rgba(233,229,218,0.92); }
+.about-illust { display:flex; justify-content:center; margin:1.8rem 0 2.4rem; }
+.about-illust svg { width:320px; max-width:90%; height:auto; }
+.about .talk-block-h .num { font-size:1rem; }
+
+/* 神社モチーフ小アイコン */
+.sicon { display:block; width:48px; height:48px; margin-bottom:1rem; color:var(--gold); }
+.sicon.center-i { margin-left:auto; margin-right:auto; }
+.sicon svg { width:100%; height:100%; }
+
+/* talk (語り口セクション共通) */
+.talk-h { font-weight:900; font-size:clamp(1.4rem,3.6vw,2rem); line-height:1.6; color:var(--ink); letter-spacing:0.02em; margin-bottom:1.4rem; }
+.talk-h.center-h { text-align:center; }
+.talk-p { font-size:1.02rem; line-height:2.25; color:var(--text); margin-bottom:1.5rem; }
+.talk-p.center-p { text-align:center; margin-left:auto; margin-right:auto; }
+.talk-p strong { font-weight:700; color:var(--ink); border-bottom:2px solid var(--gold); padding-bottom:1px; }
+.talk-list { list-style:none; margin:1.6rem 0 2rem; }
+.talk-list li { position:relative; padding-left:1.6rem; margin-bottom:1.3rem; font-size:0.98rem; line-height:2; color:var(--text); }
+.talk-list li::before { content:'❋'; position:absolute; left:0; top:0; color:var(--gold); }
+.talk-list li b { display:block; font-weight:900; color:var(--ink); font-size:1.04rem; }
+.talk-block { background:var(--card); border:1.5px solid var(--line); border-radius:10px; padding:1.8rem 1.9rem; margin-bottom:1.2rem; }
+.talk-block-h { display:flex; align-items:center; gap:0.7rem; font-weight:900; font-size:1.1rem; color:var(--ink); margin-bottom:0.7rem; }
+.talk-block-h .num { display:inline-grid; place-items:center; width:28px; height:28px; border-radius:50%; background:var(--gold); color:#fff; font-size:0.92rem; flex-shrink:0; }
+.talk-block p { font-size:0.94rem; line-height:2.1; color:var(--text-muted); }
+.center-p { text-align:center; }
+.method.method { background:rgba(241,237,226,0.88); }
+.method.method .talk-h, .method.method .talk-p { color:var(--ink); }
+.method.method .talk-p { color:var(--text); }
+.method.method .center-p { color:var(--text-muted); }
+
+/* sticky mobile cta */
+.sticky { position:fixed; left:0; right:0; bottom:0; z-index:70; display:none; padding:0.7rem 1rem calc(0.7rem + env(safe-area-inset-bottom,0px));
+  background:rgba(43,38,32,0.96); backdrop-filter:blur(8px); border-top:1px solid rgba(255,255,255,0.12); transform:translateY(120%); transition:transform .35s cubic-bezier(.2,.7,.2,1); }
+.sticky.show { transform:translateY(0); }
+.sticky a { display:flex; align-items:center; justify-content:center; gap:0.5rem; background:var(--gold); color:#fff; text-decoration:none; font-weight:900; font-size:0.96rem; padding:0.95rem; border-radius:100px; white-space:nowrap; }
+.sticky a .badge { display:inline-grid; place-items:center; width:auto; height:20px; padding:0 6px; border-radius:5px; background:#06C755; color:#fff; font-size:0.58rem; font-weight:900; letter-spacing:0.02em; }
+.sticky .mc { text-align:center; font-size:0.68rem; color:rgba(255,255,255,0.6); margin-top:0.35rem; }
+@media (max-width:860px){ .sticky{ display:block } }
+</style>
+</head>
+<body>
+
+<div class="ki-flow" aria-hidden="true">
+  <svg viewBox="0 0 1200 2400" preserveAspectRatio="xMidYMid slice" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#c08a3a" stroke-width="1.2" stroke-linecap="round">
+    <path d="M-50 200 Q300 120 600 220 T1250 180" opacity="0.5"/>
+    <path d="M-50 260 Q300 190 600 280 T1250 250" opacity="0.35"/>
+    <path d="M-50 520 Q350 600 700 500 T1250 560" opacity="0.5"/>
+    <path d="M-50 580 Q350 660 700 560 T1250 620" opacity="0.3"/>
+    <path d="M-50 900 Q300 820 650 920 T1250 880" opacity="0.45"/>
+    <path d="M-50 1250 Q400 1340 750 1230 T1250 1300" opacity="0.5"/>
+    <path d="M-50 1310 Q400 1400 750 1290 T1250 1360" opacity="0.3"/>
+    <path d="M-50 1650 Q320 1570 680 1670 T1250 1620" opacity="0.45"/>
+    <path d="M-50 1980 Q380 2070 720 1960 T1250 2030" opacity="0.5"/>
+    <path d="M-50 2300 Q300 2220 650 2320 T1250 2270" opacity="0.4"/>
+  </svg>
+</div>
+
+<nav>
+  <a href="#" class="brand"><b>スピ不動産</b><span>SPI ESTATE</span></a>
+  <a href="LINE_URL_HERE" class="nav-line"><span class="ic">LINE</span><span class="full">買い時を無料診断</span><span class="short">無料診断</span></a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-deco">
+    <svg viewBox="0 0 220 260" fill="none" stroke="#c08a3a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+      <path d="M30 60 Q110 46 190 60"/>
+      <path d="M34 58 Q110 66 186 58"/>
+      <path d="M44 72 L176 72"/>
+      <path d="M56 60 L56 210"/>
+      <path d="M164 60 L164 210"/>
+      <path d="M48 210 L64 210"/>
+      <path d="M156 210 L172 210"/>
+      <path d="M104 72 L104 88 L116 88 L116 72"/>
+      <ellipse cx="110" cy="120" rx="16" ry="20"/>
+      <path d="M98 112 H122 M97 120 H123 M98 128 H122"/>
+      <path d="M110 100 L110 96 M104 100 H116"/>
+      <path d="M110 140 L110 146"/>
+    </svg>
+  </div>
+  <div class="hero-cloud c1"><svg viewBox="0 0 120 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M10 26 Q26 16 44 26 M52 30 Q70 20 90 30 M30 34 Q48 28 66 34"/></svg></div>
+  <div class="hero-cloud c2"><svg viewBox="0 0 90 30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 18 Q22 10 38 18 M44 22 Q60 14 78 22"/></svg></div>
+  <div class="hero-deco2"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M34 44 C30 34 42 30 50 34 C58 30 70 34 66 44 C70 48 68 56 62 56 L62 74 L38 74 L38 56 C32 56 30 48 34 44 Z"/><circle cx="44" cy="46" r="2"/><circle cx="56" cy="46" r="2"/><path d="M46 56 Q50 60 54 56"/><path d="M38 74 L38 82 M62 74 L62 82 M50 74 L50 82"/><path d="M30 40 Q24 38 22 32 M70 40 Q76 38 78 32"/></svg></div>
+  <div class="wrap">
+    <div class="hero-kicker">四柱推命 × 九星気学 × 不動産</div>
+    <div class="hero-headrow">
+      <h1 class="hero-h">
+        家を買うなら、<br>
+        いい時に、<span class="u">いい家を。</span>
+      </h1>
+      <div class="hero-h-illust">
+        <svg viewBox="0 0 130 150" fill="none" stroke="#c08a3a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 34 Q65 22 114 34"/>
+          <path d="M20 32 Q65 40 110 32"/>
+          <path d="M28 48 L102 48"/>
+          <path d="M36 34 L36 130"/>
+          <path d="M94 34 L94 130"/>
+          <path d="M28 130 L44 130"/>
+          <path d="M86 130 L102 130"/>
+          <path d="M59 48 L59 60 L71 60 L71 48"/>
+          <ellipse cx="65" cy="85" rx="13" ry="16"/>
+          <path d="M54 78 H76 M53 85 H77 M54 92 H76"/>
+          <path d="M65 69 L65 65 M59 69 H71"/>
+          <path d="M65 101 L65 106"/>
+          <path d="M10 124 Q22 120 34 124 M96 124 Q108 120 120 124"/>
+        </svg>
+      </div>
+    </div>
+    <p class="hero-sub">
+      家を買うのは、人生でいちばん大きな買い物。条件や価格だけでは、なかなか決めきれないものです。今が買い時か、この街でいいか、あなたと相性のいい家はどれか——。私たちは、あなたの生まれ持った星から、ご縁のある一軒と、買うのに良い時期を見立てる不動産屋です。
+    </p>
+    <div class="hero-cta">
+      <a href="LINE_URL_HERE" class="btn-line"><span class="badge">LINE</span>無料で「買い時・吉方位」を診断</a>
+    </div>
+    <div class="hero-icons">
+      <svg viewBox="0 0 60 60" fill="none" stroke="#c08a3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M30 8 L44 15 L44 44 L16 44 L16 15 Z"/><path d="M30 8 L24 12 M30 8 L36 12"/><circle cx="30" cy="24" r="4"/><path d="M23 34 H37"/><path d="M20 44 L17 54 M40 44 L43 54"/></svg>
+      <svg viewBox="0 0 60 60" fill="none" stroke="#c08a3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M30 12 C20 12 18 22 18 30 C18 38 14 40 14 43 H46 C46 40 42 38 42 30 C42 22 40 12 30 12 Z"/><path d="M30 7 L30 12"/><path d="M26 47 C26 51 34 51 34 47"/><path d="M30 24 L30 36"/></svg>
+      <svg viewBox="0 0 60 60" fill="none" stroke="#c08a3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 18 C22 14 38 14 38 18 L38 48 C38 51 22 51 22 48 Z"/><path d="M22 23 H38"/><path d="M27 14 L27 10 M33 14 L33 10 M27 10 H33"/><path d="M30 30 L30 40 M26 35 H34"/></svg>
+    </div>
+  </div>
+</header>
+
+<!-- STORY -->
+<section class="shrine" id="story">
+  <div class="wrap reveal">
+    <h2 class="shrine-title">土地の神様。</h2>
+    <div class="shrine-illust">
+      <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#2b2620" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M40 30 Q150 18 260 30"/>
+        <path d="M40 30 L34 62"/><path d="M150 24 L150 50"/><path d="M260 30 L266 62"/>
+        <path d="M70 34 L66 50 L74 50 L70 66"/><path d="M115 30 L111 46 L119 46 L115 62"/>
+        <path d="M185 30 L181 46 L189 46 L185 62"/><path d="M230 34 L226 50 L234 50 L230 66"/>
+        <path d="M52 70 Q44 88 50 108 M52 78 L44 82 M52 90 L44 94 M52 78 L60 82 M52 90 L60 94"/>
+        <path d="M248 70 Q256 88 250 108 M248 78 L256 82 M248 90 L256 94 M248 78 L240 82 M248 90 L240 94"/>
+        <path d="M70 175 L230 175 L214 200 L86 200 Z"/>
+        <path d="M86 200 L86 210 M214 200 L214 210"/>
+        <path d="M96 175 L96 150 L124 150 L124 175"/><path d="M100 150 Q110 138 120 150"/>
+        <path d="M196 175 L196 140 Q196 132 200 130 L200 122 L208 122 L208 130 Q212 132 212 140 L212 175 Z"/>
+        <path d="M138 175 L138 156 L172 156 L172 175"/>
+        <circle cx="148" cy="150" r="6"/><circle cx="162" cy="150" r="6"/><circle cx="155" cy="142" r="6"/>
+        <path d="M150 118 Q144 110 150 102 Q156 94 150 86"/>
+        <path d="M138 122 Q133 116 138 110"/><path d="M162 122 Q167 116 162 110"/>
+      </svg>
+    </div>
+    <p class="q">あなたは、家に「相性」があると思いますか?</p>
+    <p>あ、ちょっと怪しいですね。でも、ページを閉じる前に、少しだけ聞いてください。先に言っておくと、私たちは別にスピリチュアルが大好きな集団ではありません。高い壺も、開運グッズも売りません。ただの、運気をちょっと真剣に考える不動産屋です。</p>
+    <p>でも、長く家の仕事をしていると、思うんです。同じ条件、同じ価格の物件でも、<strong>住んだ途端に運が回り出す家と、なぜかつまずく家がある</strong>。面白いもので、事業を伸ばす方や、ことを成す方ほど、この「縁」や「時」を大切にされます。理屈では説明できない。でも、確かにある。その「数字に出ない何か」を、私たちは気のせいで片付けたくないんです。</p>
+    <hr class="shrine-rule">
+    <div class="story-cut"><svg viewBox="0 0 160 70" fill="none" stroke="#c08a3a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M40 30 Q55 24 70 30 M44 30 V58 M66 30 V58 M48 38 H62 M40 30 L36 33 M70 30 L74 33"/><path d="M95 58 V40 L110 30 L125 40 V58 M103 58 V48 H117 V58"/><path d="M110 24 Q113 27 110 30 Q107 27 110 24"/><path d="M20 50 Q30 46 40 50 M120 52 Q130 48 140 52"/></svg></div>
+    <p class="shrine-sub">昔の人は、知っていた。</p>
+    <p>家を建てる前には土地を清める地鎮祭をやり、引っ越しの日取りを暦で選び、鬼門を気にして間取りを考えた。迷信と笑うのは簡単です。でも、何百年も受け継がれてきたということは、人がそこに「効いている何か」を感じ続けてきた、ということ。私たちは、その感覚を信じています。</p>
+    <p>家を選ぶのは、本当は「これからの人生を、どこに置くか」を選ぶこと。だからこそ、価格と立地だけでなく、<strong>あなたとその土地・その時期との相性</strong>まで見て、はじめて納得のいく一軒に出会えると、私たちは思うんです。</p>
+    <div class="shrine-close">
+      <p>
+        土地と家をめぐる、不思議なご縁ってあるんです。<br>
+        信じるか信じないかは、あなた次第。<br>
+        でも、知っておいて損は、しませんよ。
+      </p>
+      <div class="sig">― スピ不動産 ―</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEARS -->
+<section class="fears">
+  <div class="wrap narrow reveal">
+    <div class="kasumi"><svg viewBox="0 0 120 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M10 10 Q30 4 50 10 M60 13 Q80 7 100 13 M30 16 Q45 12 60 16"/></svg></div>
+    <span class="sicon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6 L34 12 L34 34 L14 34 L14 12 Z"/><path d="M24 6 L24 12 M19 9 L24 6 L29 9"/><circle cx="24" cy="20" r="3"/><path d="M19 28 H29"/><path d="M16 34 L14 42 M32 34 L34 42"/></svg></span>
+    <h2 class="talk-h">家を買う前、<br>こんな不安はありませんか。</h2>
+    <ul class="talk-list">
+      <li><span class="mini-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#c08a3a" stroke-width="1.6" stroke-linecap="round"><path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></span><b>「今が、動く時なのか。」</b>買うべきか、売るべきか、もう少し待つべきか。大きな額が動く決断ほど、確かな決め手がほしい。</li>
+      <li><span class="mini-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#c08a3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M8 7h6a2.5 2.5 0 010 5H9a2.5 2.5 0 000 5h7"/></svg></span><b>「この一手で、損はできない。」</b>高値で掴みたくないし、安く手放したくもない。数千万が動くからこそ、判断を間違えたくない。</li>
+      <li><span class="mini-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#c08a3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18 L9 12 L13 15 L21 6 M21 6 H16 M21 6 V11"/></svg></span><b>「この選択は、先々まで効いてくる。」</b>住まいも資産も、長く付き合うもの。だからこそ、目先だけでなく運の巡りまで含めて選びたい。</li>
+    </ul>
+    <p class="talk-p">わかります。大きな決断ほど、物件そのものより「選ぶこと」が重いんですよね。<br>でも、その迷いは——<strong>あなたとの「相性」と「動く時期」</strong>がわかるだけで、ぐっと定まります。</p>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="method">
+  <div class="wrap narrow reveal">
+    <span class="sicon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 14 C18 11 30 11 30 14 L30 38 C30 40 18 40 18 38 Z"/><path d="M18 18 H30"/><path d="M22 11 L22 8 M26 11 L26 8 M22 8 H26"/><path d="M24 23 L24 31 M21 27 H27"/></svg></span>
+    <h2 class="talk-h">だから、私たちは<br>ふたつの目で見ます。</h2>
+    <p class="talk-p">その迷いは、相場の数字だけでは消えません。「この先どうなるか」を言い切れる人なんて、いないからです。だから私たちは、ひとつの不動産を、ふたつの目で見るようにしています。</p>
+
+    <div class="talk-block">
+      <div class="talk-block-h"><span class="num">一</span>不動産屋として、当たり前のことを。</div>
+      <p>周辺の成約事例から、根拠のある適正価格を出す。資金やローン、税のことまで見据える。契約の落とし穴も、先回りして潰しておく。占いの前に、まず地に足のついた仕事をします。星だけで、不動産は決められませんから。</p>
+    </div>
+
+    <div class="talk-block">
+      <div class="talk-block-h"><span class="num">二</span>あなたの星から、相性を。</div>
+      <p>四柱推命と九星気学で、あなたにとっての吉方位、動くと実を結びやすい時期、その土地との相性を見立てます。相場表には載っていない、ことを成す人が大切にしてきた判断材料です。</p>
+    </div>
+
+    <p class="talk-p center-p">現実の安心と、運気の納得。<br>その両方が揃って、はじめて「ここだ」と思えるんです。</p>
+  </div>
+</section>
+
+<!-- ABOUT 占術の説明 -->
+<section class="about">
+  <div class="wrap narrow reveal">
+    <span class="sicon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="16"/><path d="M24 8 L24 40 M8 24 L40 24"/><path d="M24 24 L35 13 M24 24 L13 13 M24 24 L35 35 M24 24 L13 35"/><circle cx="24" cy="24" r="3"/></svg></span>
+    <h2 class="talk-h">「四柱推命」と「九星気学」って、<br>なんですか?</h2>
+    <p class="talk-p">急に難しそうな言葉が出てきましたね。でも、身構えなくて大丈夫です。どちらも昔から日本で大切にされてきた、<strong>「その人らしく生きるための、暮らしの知恵」</strong>のようなもの。かんたんに、お話しさせてください。</p>
+
+    <div class="about-illust">
+      <svg viewBox="0 0 320 130" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#2b2620" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M30 40 Q26 35 30 30 L90 30 Q94 35 90 40 L90 95 Q94 100 90 105 L30 105 Q26 100 30 95 Z"/>
+        <path d="M42 48 H78 M42 60 H78 M42 72 H66 M42 84 H72"/>
+        <ellipse cx="30" cy="35" rx="4" ry="6"/><ellipse cx="90" cy="35" rx="4" ry="6"/>
+        <path d="M120 67 H140 M134 61 L140 67 L134 73" stroke="#c08a3a"/>
+        <circle cx="200" cy="67" r="34"/>
+        <path d="M200 33 L200 101 M166 67 L234 67"/>
+        <path d="M200 67 L224 43 M200 67 L176 43 M200 67 L224 91 M200 67 L176 91"/>
+        <circle cx="200" cy="67" r="5"/>
+        <text x="200" y="28" font-size="9" fill="#2b2620" text-anchor="middle" stroke="none">北</text>
+        <path d="M270 70 L290 54 L310 70 M274 67 V95 H306 V67 M286 95 V80 H294 V95" stroke="#c08a3a"/>
+      </svg>
+    </div>
+
+    <div class="talk-block">
+      <div class="talk-block-h"><span class="num">命</span>四柱推命 ― あなたが生まれ持ったもの</div>
+      <p>生まれた年・月・日・時間の四つの柱から、あなたという人の<b>持って生まれた性質や、運の流れ</b>を読み解くものです。いわば「あなたの取扱説明書」。どんな時期に力が出て、いつ慎重になったほうがいいか。家を動かすなら、いつがあなたにとって追い風なのか。その時期を見立てるのに使います。</p>
+    </div>
+
+    <div class="talk-block">
+      <div class="talk-block-h"><span class="num">方</span>九星気学 ― あなたと「方位」の相性</div>
+      <p>生まれた年から導く「九つの星」をもとに、あなたにとっての<b>良い方角・気をつけたい方角</b>を見るものです。昔の人が引っ越しの方角を気にしたのは、これ。同じ家でも、その人にとって追い風の方位と、向かい風の方位がある。だから、あなたの星に合った土地や方角を選ぶお手伝いに使います。</p>
+    </div>
+
+    <p class="talk-p">むずかしく聞こえても、やることはシンプルです。<strong>あなたの「いつ動くといいか」を四柱推命で、「どこがいいか」を九星気学で。</strong>このふたつを重ねて、あなたにいちばん「ご縁」のある家を、ご一緒に探していきます。</p>
+  </div>
+</section>
+
+<!-- CHI 地気の具体例 -->
+<section class="chi">
+  <div class="wrap narrow reveal">
+    <span class="sicon center-i"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30 Q16 20 24 30 Q32 40 40 30"/><path d="M8 38 Q16 28 24 38 Q32 48 40 38" opacity="0.5"/><path d="M24 8 L24 18 M20 12 L24 8 L28 12"/></svg></span>
+    <h2 class="talk-h center-h">土地には、<br>「気の流れ」があります。</h2>
+    <p class="talk-p center-p">これは占いというより、昔の人が何百年もかけて見つけてきた、土地の読み方です。少しだけ、面白い話をさせてください。</p>
+  </div>
+
+  <div class="wrap narrow reveal">
+    <hr class="shrine-rule">
+    <p class="shrine-sub">なぜ、あの土地は<br>値が下がらないのか。</p>
+    <div class="chi-illust">
+      <svg viewBox="0 0 320 220" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#2b2620" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="135" y="95" width="50" height="40" rx="2"/>
+        <path d="M135 95 L160 78 L185 95"/>
+        <path d="M152 135 V115 H168 V135"/>
+        <text x="160" y="155" font-size="9" fill="#c08a3a" text-anchor="middle" stroke="none">中心</text>
+        <path d="M130 40 L145 20 L160 40 M160 40 L175 22 L190 40" stroke="#c08a3a"/>
+        <text x="160" y="15" font-size="9" fill="#2b2620" text-anchor="middle" stroke="none">北 / 山</text>
+        <path d="M120 185 Q160 178 200 185 M120 195 Q160 188 200 195" stroke="#c08a3a"/>
+        <text x="160" y="212" font-size="9" fill="#2b2620" text-anchor="middle" stroke="none">南 / 水</text>
+        <path d="M55 70 Q48 110 55 150" stroke="#c08a3a"/>
+        <text x="42" y="115" font-size="9" fill="#2b2620" text-anchor="middle" stroke="none">東</text>
+        <path d="M265 70 L265 150" stroke="#c08a3a" stroke-dasharray="4 4"/>
+        <text x="278" y="115" font-size="9" fill="#2b2620" text-anchor="middle" stroke="none">西</text>
+        <path d="M95 60 L130 90 M90 60 H98 V68" stroke="#c08a3a" opacity="0.7"/>
+        <path d="M225 60 L190 90 M222 68 V60 H230" stroke="#c08a3a" opacity="0.7"/>
+        <path d="M160 55 L160 75 M156 68 L160 75 L164 68" stroke="#c08a3a" opacity="0.7"/>
+      </svg>
+    </div>
+    <p class="talk-p">たとえば、東京のある場所は「四百年、地価が下がらない」と言われます。偶然ではありません。その昔、都を設計した人々は、<strong>北に山、東に川、南に水、西に道</strong>——四方を守りで囲まれた「四神相応(しじんそうおう)」という、気の集まる地形をわざわざ選んで中心に据えました。</p>
+    <p class="talk-p">気が集まる場所には、人と富が自然と集まる。だから栄え、値が下がらない。昔の人はそう考えました。面白いのは、その通りに今も一等地であり続けている、ということです。</p>
+  </div>
+
+  <div class="wrap narrow reveal">
+    <hr class="shrine-rule">
+    <p class="shrine-sub">高台と、谷。</p>
+    <div class="chi-illust">
+      <svg viewBox="0 0 320 170" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#2b2620" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 60 L70 60 Q90 60 95 90 L120 130 Q130 145 145 145 L175 145 Q190 145 200 130 L225 90 Q230 60 250 60 L310 60"/>
+        <path d="M30 60 L42 50 L54 60 M34 60 V48 M50 60 V48" stroke="#c08a3a"/>
+        <path d="M266 60 L278 50 L290 60 M270 60 V48 M286 60 V48" stroke="#c08a3a"/>
+        <path d="M135 138 Q160 132 185 138" stroke="#c08a3a"/>
+        <path d="M145 144 Q160 140 175 144" stroke="#c08a3a" opacity="0.6"/>
+        <path d="M95 75 L120 110 M96 82 L95 75 L102 76" stroke="#c08a3a" opacity="0.7"/>
+        <path d="M225 75 L200 110 M218 76 L225 75 L224 82" stroke="#c08a3a" opacity="0.7"/>
+        <text x="42" y="40" font-size="9" fill="#2b2620" text-anchor="middle" stroke="none">高台</text>
+        <text x="160" y="165" font-size="9" fill="#2b2620" text-anchor="middle" stroke="none">谷</text>
+        <text x="278" y="40" font-size="9" fill="#2b2620" text-anchor="middle" stroke="none">高台</text>
+      </svg>
+    </div>
+    <p class="talk-p">古い住宅地の地名には、ヒントが隠れています。「台」「丘」「山」がつく土地は高台。昔から<strong>気が安定し、住むのに良い</strong>とされ、今も高級住宅地はたいてい高台にあります。いっぽう「谷」がつく土地は、低くて気が流れすぎる、と昔の人は考えました。</p>
+    <p class="talk-p">商いには「動き」がいるので、谷あいの街もにぎわいます。けれど「腰を据えて住む・構える」なら、気の安定した高台が良いとされてきた。物件を選ぶとき、地名の由来を一度調べてみると、面白い発見があるかもしれません。</p>
+  </div>
+
+  <div class="wrap narrow reveal">
+    <hr class="shrine-rule">
+    <p class="shrine-sub">谷の土地でも、大丈夫。</p>
+    <div class="chi-illust">
+      <svg viewBox="0 0 320 130" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#2b2620" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="60" y="35" width="200" height="75" rx="3"/>
+        <path d="M60 35 L160 18 L260 35"/>
+        <path d="M100 110 V70 H125 V110" stroke="#c08a3a"/>
+        <circle cx="200" cy="55" r="10" stroke="#c08a3a"/>
+        <path d="M200 40 V45 M200 65 V70 M185 55 H190 M210 55 H215 M190 45 L193 48 M210 45 L207 48" stroke="#c08a3a"/>
+        <path d="M165 110 V92 M165 96 Q158 90 152 94 M165 100 Q172 94 178 98" stroke="#c08a3a"/>
+        <rect x="160" y="110" width="10" height="8"/>
+      </svg>
+    </div>
+    <p class="talk-p">もし今、谷の土地にお住まいでも、心配はいりません。昔から「家の中の気は、整えられる」と言われてきました。<strong>玄関を明るく、風をよく通し、光を入れ、植物を置く。</strong>そうした昔ながらの工夫で、土地の弱さは半分以上、補えると考えられています。</p>
+    <p class="talk-p center-p">大切なのは、土地の声を無視しないこと。<br>知ったうえで選び、整えれば、住まいは味方になります。</p>
+  </div>
+</section>
+
+<!-- READING -->
+<section class="reading">
+  <div class="wrap">
+    <div class="narrow reveal" style="margin:0 auto;">
+      <span class="sicon center-i"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 10 C16 10 14 18 14 24 C14 30 11 32 11 34 H37 C37 32 34 30 34 24 C34 18 32 10 24 10 Z"/><path d="M24 6 L24 10"/><path d="M21 38 C21 41 27 41 27 38"/><path d="M24 20 L24 30"/></svg></span>
+      <h2 class="talk-h center-h">あなたの「買い時」、<br>無料でお調べします。</h2>
+      <p class="talk-p center-p">あなたの生まれ持った星と、住まいの方位を照らし合わせる。すると、売る・買うの判断に直結する3つのことが、見えてきます。</p>
+    </div>
+    <div class="read-grid">
+      <div class="read-card reveal">
+        <div class="read-ic"><svg viewBox="0 0 48 48" fill="none" stroke="#c08a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="12" width="30" height="28" rx="3"/><path d="M9 20 H39 M16 8 V16 M32 8 V16"/><path d="M16 27 H20 M24 27 H32 M16 33 H28"/></svg></div>
+        <div class="read-l">TIMING</div>
+        <div class="read-t">動くべき時期</div>
+        <div class="read-d">運気には満ち欠けがあります。あなたが決断して実を結びやすい年を見極め、買い時・売り時は今か、待つべきかをお伝えします。</div>
+      </div>
+      <div class="read-card reveal">
+        <div class="read-ic"><svg viewBox="0 0 48 48" fill="none" stroke="#c08a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="16"/><path d="M24 8 V40 M8 24 H40"/><path d="M30 18 L26 26 L18 30 L22 22 Z" fill="#c08a3a" stroke="none"/></svg></div>
+        <div class="read-l">DIRECTION</div>
+        <div class="read-t">あなたの吉方位</div>
+        <div class="read-d">同じ物件でも、あなたにとって追い風の方角と、向かい風の方角があります。金運・事業運・家庭運の観点から、良い方位を見立てます。</div>
+      </div>
+      <div class="read-card reveal">
+        <div class="read-ic"><svg viewBox="0 0 48 48" fill="none" stroke="#c08a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 24 L24 13 L36 24"/><path d="M15 22 V37 H33 V22"/><path d="M21 37 V29 H27 V37"/><path d="M24 6 Q26 9 24 11 Q22 9 24 6"/></svg></div>
+        <div class="read-l">COMPATIBILITY</div>
+        <div class="read-t">土地・家との相性</div>
+        <div class="read-d">その土地は、あなたと合うのか。間取りや方位を家相の知恵で診断し、住むほど・持つほど運を育む物件かどうかをお伝えします。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="steps">
+  <div class="wrap">
+    <div class="narrow reveal" style="margin:0 auto;">
+      <span class="sicon center-i"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8 H34 M14 8 Q24 12 34 8"/><path d="M20 10 L18 16 L24 16 L22 22 L26 22 L24 30"/><path d="M30 10 L30 30"/></svg></span>
+      <h2 class="talk-h center-h">あなたがやるのは、<br>たった30秒だけ。</h2>
+      <p class="talk-p center-p">物件を探し、相場を調べ、時を読む。その手間のかかる作業は、ぜんぶこちらが引き受けます。あなたは、要所の判断に集中してください。</p>
+    </div>
+    <div class="step-row reveal">
+      <div class="step">
+        <div class="n">01</div>
+        <div class="step-ic"><svg viewBox="0 0 48 48" fill="none" stroke="#c08a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="15" y="8" width="18" height="32" rx="3"/><path d="M21 12 H27 M24 35 H24.1"/></svg></div>
+        <h3>LINEで送る</h3>
+        <p>友だち追加して、生年月日とご希望を送るだけ。難しいことは、何も要りません。</p>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <div class="step-ic"><svg viewBox="0 0 48 48" fill="none" stroke="#c08a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 12 Q11 9 14 7 L34 7 Q37 9 34 12 L34 38 Q37 41 34 43 L14 43 Q11 41 14 38 Z"/><path d="M19 16 H29 M19 22 H29 M19 28 H25"/></svg></div>
+        <h3>鑑定が届く</h3>
+        <p>あなたの吉方位や、動くべき時期を無料で診断。気になる物件があれば、相性も見ます。</p>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <div class="step-ic"><svg viewBox="0 0 48 48" fill="none" stroke="#c08a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 24 L24 12 L38 24"/><path d="M14 21 V38 H34 V21"/><path d="M20 38 V29 H28 V38"/><path d="M24 6 Q27 9 24 12 Q21 9 24 6"/></svg></div>
+        <h3>一緒に探す</h3>
+        <p>運気と条件、両方が揃う物件をご提案。もちろん、まだ決めていなくても、構いません。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ASSURE -->
+<section class="assure">
+  <div class="wrap">
+    <div class="narrow reveal" style="margin:0 auto;">
+      <span class="sicon center-i"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20 C14 14 20 12 24 14 C28 12 34 14 32 20 C34 22 33 26 30 26 L30 34 L18 34 L18 26 C15 26 14 22 16 20 Z"/><circle cx="21" cy="21" r="1.4"/><circle cx="27" cy="21" r="1.4"/><path d="M22 26 Q24 28 26 26"/><path d="M18 34 L18 38 M30 34 L30 38 M24 34 L24 38"/></svg></span>
+      <h2 class="talk-h center-h">しつこい営業は、<br>一切しません。</h2>
+    </div>
+    <div class="assure-grid">
+      <div class="a-card reveal">
+        <div class="a-ic"><svg viewBox="0 0 48 48" fill="none" stroke="#c08a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="17"/><path d="M17 19 V29 M17 24 H23 M27 19 L31 24 L27 29 M31 19 V29"/></svg></div>
+        <div class="a-t">ぜんぶ無料</div>
+        <div class="a-d">鑑定もご相談も無料です。費用をいただくのは、売買が成立したときの仲介手数料のみ。まずは知るだけ、で構いません。</div>
+      </div>
+      <div class="a-card reveal">
+        <div class="a-ic"><svg viewBox="0 0 48 48" fill="none" stroke="#c08a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="17"/><path d="M13 13 L35 35"/></svg></div>
+        <div class="a-t">勧誘しません</div>
+        <div class="a-d">こちらから契約を急かすことはありません。お忙しい方が多いので、連絡の頻度もご都合に合わせます。</div>
+      </div>
+      <div class="a-card reveal">
+        <div class="a-ic"><svg viewBox="0 0 48 48" fill="none" stroke="#c08a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 26 L18 22 L24 25 L30 22 L38 26"/><path d="M14 24 V34 H34 V24"/><path d="M24 25 V33"/><path d="M20 14 Q24 18 28 14"/></svg></div>
+        <div class="a-t">占いが苦手でもOK</div>
+        <div class="a-d">鑑定は「もう一つの判断材料」。信じる・信じないは、ご自身で決めてください。実務のサポートだけでも歓迎します。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LINE CTA -->
+<section class="linecta">
+  <div class="bg-cut" style="right:4%;top:50%;transform:translateY(-50%);width:240px;height:240px;color:#fff;"><svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 40 Q60 30 100 40 M24 38 V44 M96 38 V44"/><path d="M30 44 H90 L84 56 H36 Z"/><path d="M36 56 V92 H84 V56"/><path d="M54 56 V92 M66 56 V92 M36 74 H84"/><path d="M60 18 V30 M54 22 H66"/><ellipse cx="60" cy="14" rx="6" ry="7"/></svg></div>
+  <div class="wrap">
+    <h2>今が買い時か、<br><span class="g">30秒</span>でわかります。</h2>
+    <p>生年月日を送るだけで、あなたの買い時・売り時と、運の巡る吉方位を無料で見立てます。売る・買うが決まっていなくても、構いません。動く前に、ご自身の「時」を知っておくこと。それが、後悔しない決断の第一歩です。</p>
+    <div class="linecta-steps">
+      <span class="lc-step"><span class="nn">1</span>LINE追加</span>
+      <span class="lc-sep">→</span>
+      <span class="lc-step"><span class="nn">2</span>生年月日を送る</span>
+      <span class="lc-sep">→</span>
+      <span class="lc-step"><span class="nn">3</span>鑑定が届く</span>
+    </div>
+    <a href="LINE_URL_HERE" class="btn-line"><span class="badge">LINE</span>無料で「買い時・吉方位」を診断</a>
+    <p class="note">所要30秒／完全無料／お忙しい方も気軽に</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="narrow reveal" style="margin:0 auto;">
+      <span class="sicon center-i"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="12" width="24" height="24" rx="2"/><path d="M24 17 L24 31 M17 24 L31 24"/><circle cx="24" cy="24" r="5"/></svg></span>
+      <h2 class="talk-h center-h">よくある、ご質問。</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q"><span>本当に無料ですか?</span><span class="faq-tg">+</span></div>
+        <div class="faq-a">はい。鑑定・ご相談・物件提案はすべて無料です。費用が発生するのは、売買のご契約が成立したときの仲介手数料のみ。相談だけで終えても無料です。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>占いを信じていなくても使えますか?</span><span class="faq-tg">+</span></div>
+        <div class="faq-a">もちろんです。鑑定は「もう一つの判断材料」としてご提供しています。相場や資金、契約まわりの実務サポートだけのご利用も歓迎します。鑑定が不要ならその旨お知らせください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>まだ買うか売るか決めていません。</span><span class="faq-tg">+</span></div>
+        <div class="faq-a">その段階こそ歓迎です。「今が動きどきか知りたい」「相場だけ知りたい」というご相談も多くいただきます。決断を急かすことはありません。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>購入・売却どちらも相談できますか?</span><span class="faq-tg">+</span></div>
+        <div class="faq-a">はい、購入・売却・住み替え・投資用まで、幅広く承ります。賃貸のお部屋探しも歓迎です。吉方位をふまえて、運気の合う住まいをご提案します。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>しつこい営業はありませんか?</span><span class="faq-tg">+</span></div>
+        <div class="faq-a">一切ございません。ご相談内容に応じて必要なご連絡のみ差し上げます。連絡の頻度や方法も、ご希望に合わせます。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <b>スピ不動産</b>
+        <div class="foot-torii"><svg viewBox="0 0 60 40" fill="none" stroke="rgba(207,157,79,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12 Q30 7 52 12 M10 11 Q30 15 50 11 M14 17 H46 M18 12 V36 M42 12 V36 M28 17 V23 H32 V17"/></svg></div>
+        <p>家は「相性」で選ぶ。四柱推命×九星気学で、あなたに運の合う住まいと買い時を見つける不動産屋です。</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h5>Menu</h5>
+          <a href="#story">考え方</a>
+          <a href="#faq">よくある質問</a>
+          <a href="LINE_URL_HERE">無料で買い時診断</a>
+        </div>
+        <div class="foot-col">
+          <h5>Company</h5>
+          <a href="./company.html">運営会社</a>
+          <a href="./privacy-policy.html">プライバシーポリシー</a>
+          <a href="./contact.html">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      © 2026 スピ不動産 ｜ 宅地建物取引業免許 ○○県知事（1）第○○○○号<br>
+      ※ 鑑定は判断材料の一つとしてご提供するもので、特定の結果や効果を保証するものではありません。
+    </div>
+  </div>
+</footer>
+
+<div class="sticky" id="sticky">
+  <a href="LINE_URL_HERE"><span class="badge">LINE</span>無料で「買い時・吉方位」を診断</a>
+  <div class="mc">生年月日だけでOK／無料／勧誘なし</div>
+</div>
+
+<script>
+if('scrollRestoration' in history) history.scrollRestoration='manual';
+if(location.hash) history.replaceState(null,'',location.pathname+location.search);
+window.scrollTo(0,0);
+
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      const h=a.getAttribute('href'); e.preventDefault();
+      if(h==='#'||h===''){window.scrollTo({top:0,behavior:'smooth'});}
+      else{const t=document.querySelector(h); if(t)t.scrollIntoView({behavior:'smooth',block:'start'});}
+    });
+  });
+});
+
+const io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.parentElement.classList.toggle('open');});});
+
+(function(){
+  const bar=document.getElementById('sticky'), hero=document.querySelector('.hero'), cta=document.querySelector('.linecta');
+  if(!bar) return;
+  let past=false, atCta=false;
+  if(hero) new IntersectionObserver(function(es){past=!es[0].isIntersecting;upd();},{threshold:0}).observe(hero);
+  if(cta) new IntersectionObserver(function(es){atCta=es[0].isIntersecting;upd();},{threshold:0.2}).observe(cta);
+  function upd(){ if(past&&!atCta)bar.classList.add('show'); else bar.classList.remove('show'); }
+})();
+</script>
+</body>
+</html>
