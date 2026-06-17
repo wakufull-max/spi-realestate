@@ -29,7 +29,7 @@
   --shadow-md: 0 14px 40px rgba(74,67,56,0.12);
   --shadow-lg: 0 30px 70px rgba(74,67,56,0.18);
   --maxw: 1040px;
-  --LINE_URL: "LINE_URL_HERE";
+  --LINE_URL: "https://lin.ee/shWa3T7";
 }
 * { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
@@ -78,7 +78,11 @@ nav { position:sticky; top:0; z-index:60; display:flex; justify-content:space-be
 
 /* buttons */
 .btn-line { display:inline-flex; align-items:center; justify-content:center; gap:0.6rem; background:var(--ink); color:var(--paper); text-decoration:none;
-  font-weight:900; font-size:1.04rem; padding:1.15rem 2.4rem; border-radius:100px; box-shadow:0 8px 0 rgba(74,67,56,0.3); transition:transform .18s, box-shadow .18s; }
+  font-weight:900; font-size:1.04rem; padding:1.15rem 2.4rem; border-radius:100px; box-shadow:0 8px 0 rgba(74,67,56,0.3); transition:transform .18s, box-shadow .18s; white-space:nowrap; }
+@media (max-width:480px){
+  .btn-line { font-size:0.9rem; padding:1.1rem 1.2rem; gap:0.45rem; }
+  .btn-line .badge { height:20px; padding:0 5px; font-size:0.56rem; }
+}
 .btn-line:hover { transform:translateY(-2px); box-shadow:0 10px 0 rgba(74,67,56,0.3); background:#3a342c; }
 .btn-line:active { transform:translateY(4px); box-shadow:0 4px 0 rgba(74,67,56,0.3); }
 .btn-line .badge { display:inline-grid; place-items:center; width:auto; height:22px; padding:0 6px; border-radius:5px; background:#06C755; color:#fff; font-size:0.6rem; font-weight:900; letter-spacing:0.02em; }
@@ -99,10 +103,16 @@ nav { position:sticky; top:0; z-index:60; display:flex; justify-content:space-be
 .hero-points div { font-size:0.86rem; color:var(--text); font-weight:700; }
 .hero-points .g { color:var(--gold); margin-right:0.3rem; }
 .hero-deco { display:none; }
+.sp-br { display:none; }
+@media (max-width:600px){ .sp-br { display:inline; } }
 .hero-headrow { display:flex; align-items:center; gap:2.5rem; }
 .hero-h-illust { flex-shrink:0; }
 .hero-h-illust svg { width:130px; height:auto; }
 @media (max-width:760px){ .hero-headrow { gap:1rem; } .hero-h-illust svg { width:84px; } }
+@media (max-width:600px){
+  .hero-headrow { flex-direction:column; align-items:flex-start; gap:1.4rem; }
+  .hero-h-illust svg { width:96px; }
+}
 .hero-deco2 { position:absolute; left:-30px; bottom:8%; width:150px; opacity:0.32; pointer-events:none; color:var(--gold); }
 .hero-deco2 svg { width:100%; height:auto; }
 .hero-icons { display:flex; gap:1.6rem; margin-top:2.6rem; padding-top:2rem; border-top:1.5px dashed var(--line-strong); }
@@ -319,7 +329,7 @@ body > nav, body > header, body > section, body > footer { position:relative; z-
 
 <nav>
   <a href="#" class="brand"><b>スピ不動産</b><span>SPI ESTATE</span></a>
-  <a href="LINE_URL_HERE" class="nav-line"><span class="ic">LINE</span><span class="full">買い時を無料診断</span><span class="short">無料診断</span></a>
+  <a href="https://lin.ee/shWa3T7" class="nav-line"><span class="ic">LINE</span><span class="full">買い時を無料診断</span><span class="short">無料診断</span></a>
 </nav>
 
 <!-- HERO -->
@@ -348,7 +358,7 @@ body > nav, body > header, body > section, body > footer { position:relative; z-
     <div class="hero-headrow">
       <h1 class="hero-h">
         家を買うなら、<br>
-        いい時に、<span class="u">いい家を。</span>
+        いい時に、<br class="sp-br"><span class="u">いい家を。</span>
       </h1>
       <div class="hero-h-illust">
         <svg viewBox="0 0 130 150" fill="none" stroke="#c08a3a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -372,7 +382,7 @@ body > nav, body > header, body > section, body > footer { position:relative; z-
       家を買うのは、人生でいちばん大きな買い物。条件や価格だけでは、なかなか決めきれないものです。今が買い時か、この街でいいか、あなたと相性のいい家はどれか——。私たちは、あなたの生まれ持った星から、ご縁のある一軒と、買うのに良い時期を見立てる不動産屋です。
     </p>
     <div class="hero-cta">
-      <a href="LINE_URL_HERE" class="btn-line"><span class="badge">LINE</span>無料で「買い時・吉方位」を診断</a>
+      <a href="https://lin.ee/shWa3T7" class="btn-line"><span class="badge">LINE</span>無料で「買い時・吉方位」を診断</a>
     </div>
     <div class="hero-icons">
       <svg viewBox="0 0 60 60" fill="none" stroke="#c08a3a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M30 8 L44 15 L44 44 L16 44 L16 15 Z"/><path d="M30 8 L24 12 M30 8 L36 12"/><circle cx="30" cy="24" r="4"/><path d="M23 34 H37"/><path d="M20 44 L17 54 M40 44 L43 54"/></svg>
@@ -671,7 +681,7 @@ body > nav, body > header, body > section, body > footer { position:relative; z-
       <span class="lc-sep">→</span>
       <span class="lc-step"><span class="nn">3</span>鑑定が届く</span>
     </div>
-    <a href="LINE_URL_HERE" class="btn-line"><span class="badge">LINE</span>無料で「買い時・吉方位」を診断</a>
+    <a href="https://lin.ee/shWa3T7" class="btn-line"><span class="badge">LINE</span>無料で「買い時・吉方位」を診断</a>
     <p class="note">所要30秒／完全無料／お忙しい方も気軽に</p>
   </div>
 </section>
@@ -722,7 +732,7 @@ body > nav, body > header, body > section, body > footer { position:relative; z-
           <h5>Menu</h5>
           <a href="#story">考え方</a>
           <a href="#faq">よくある質問</a>
-          <a href="LINE_URL_HERE">無料で買い時診断</a>
+          <a href="https://lin.ee/shWa3T7">無料で買い時診断</a>
         </div>
         <div class="foot-col">
           <h5>Company</h5>
@@ -740,7 +750,7 @@ body > nav, body > header, body > section, body > footer { position:relative; z-
 </footer>
 
 <div class="sticky" id="sticky">
-  <a href="LINE_URL_HERE"><span class="badge">LINE</span>無料で「買い時・吉方位」を診断</a>
+  <a href="https://lin.ee/shWa3T7"><span class="badge">LINE</span>無料で「買い時・吉方位」を診断</a>
   <div class="mc">生年月日だけでOK／無料／勧誘なし</div>
 </div>
 
