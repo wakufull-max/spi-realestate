@@ -76,8 +76,6 @@ nav { position:sticky; top:0; z-index:60; display:flex; justify-content:space-be
   .nav-line .full { display:none; } .nav-line .short { display:inline; }
   .btn-line { font-size:0.82rem; padding:1.05rem 0.9rem; gap:0.4rem; white-space:nowrap; }
   .btn-line .badge { height:18px; padding:0 4px; font-size:0.52rem; }
-  .sticky a { font-size:0.84rem; white-space:nowrap; }
-  .sticky a .badge { height:17px; padding:0 4px; font-size:0.5rem; }
 }
 
 /* buttons */
@@ -97,7 +95,7 @@ nav { position:sticky; top:0; z-index:60; display:flex; justify-content:space-be
 .hero-kicker { display:inline-block; font-size:0.78rem; font-weight:700; letter-spacing:0.16em; color:var(--gold); margin-bottom:1.6rem; }
 .hero-h { font-weight:900; font-size:clamp(2.5rem,6.4vw,4.2rem); line-height:1.45; letter-spacing:0.02em; color:var(--ink); margin-bottom:1.6rem; }
 .hero-h .u { background:linear-gradient(transparent 64%, rgba(192,138,58,0.32) 64%); }
-.hero-sub { font-size:1.05rem; color:var(--text); line-height:2.1; max-width:560px; margin-bottom:2.4rem; }
+.hero-sub { font-size:1.05rem; color:var(--text); line-height:2.1; max-width:560px; margin-bottom:0; }
 .hero-cta { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; }
 .hero-points { display:flex; flex-wrap:wrap; gap:1.4rem 2rem; margin-top:2.6rem; padding-top:2rem; border-top:1.5px dashed var(--line-strong); }
 .hero-points div { font-size:0.86rem; color:var(--text); font-weight:700; }
@@ -295,16 +293,57 @@ body > nav, body > header, body > section, body > footer { position:relative; z-
 .method.method .talk-p { color:var(--text); }
 .method.method .center-p { color:var(--text-muted); }
 
-/* sticky mobile cta */
-.sticky { position:fixed; left:0; right:0; bottom:0; z-index:70; display:none; padding:0.7rem 1rem calc(0.7rem + env(safe-area-inset-bottom,0px));
-  background:rgba(43,38,32,0.96); backdrop-filter:blur(8px); border-top:1px solid rgba(255,255,255,0.12); transform:translateY(120%); transition:transform .35s cubic-bezier(.2,.7,.2,1); }
-.sticky.show { transform:translateY(0); }
-.sticky a { display:flex; align-items:center; justify-content:center; gap:0.5rem; background:var(--gold); color:#fff; text-decoration:none; font-weight:900; font-size:0.96rem; padding:0.95rem; border-radius:100px; white-space:nowrap; }
-.sticky a .badge { display:inline-grid; place-items:center; width:auto; height:20px; padding:0 6px; border-radius:5px; background:#06C755; color:#fff; font-size:0.58rem; font-weight:900; letter-spacing:0.02em; }
-.sticky .mc { text-align:center; font-size:0.68rem; color:rgba(255,255,255,0.6); margin-top:0.35rem; }
-.sticky{ display:block; }
-.sticky .sticky-inner { max-width:520px; margin:0 auto; }
-@media (max-width:860px){ .sticky .sticky-inner { max-width:none; } }
+/* menu（鑑定メニュー） */
+.menu { background:rgba(241,237,226,0.88); }
+.menu-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.8rem; }
+.menu-card { background:var(--card); border:1.5px solid var(--line); border-radius:10px; padding:2.2rem 1.8rem; display:flex; flex-direction:column; transition:transform .25s, box-shadow .25s, border-color .25s; }
+.menu-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-md); border-color:var(--line-strong); }
+.menu-card .m-no { font-size:0.72rem; font-weight:700; letter-spacing:0.14em; color:var(--gold); margin-bottom:0.7rem; }
+.menu-ic { width:50px; height:50px; margin-bottom:1rem; color:var(--gold); }
+.menu-ic svg { width:100%; height:100%; }
+.menu-card h3 { font-weight:900; font-size:1.18rem; color:var(--ink); margin-bottom:0.7rem; line-height:1.5; }
+.menu-card p { font-size:0.9rem; color:var(--text-muted); line-height:1.95; margin-bottom:1.2rem; flex-grow:1; }
+.menu-fee { display:inline-flex; align-items:baseline; gap:0.5rem; padding-top:1rem; border-top:1.5px dashed var(--line-strong); }
+.menu-fee .lbl { font-size:0.74rem; color:var(--text-faint); font-weight:700; letter-spacing:0.08em; }
+.menu-fee .val { font-size:0.96rem; font-weight:900; color:var(--ink); }
+.menu-note { text-align:center; margin-top:2.4rem; font-size:0.86rem; color:var(--text-muted); line-height:1.9; }
+@media (max-width:760px){ .menu-grid{ grid-template-columns:1fr } }
+
+/* listings（紹介物件） */
+.listings { background:rgba(233,229,218,0.92); }
+.list-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; margin-top:2.8rem; }
+.list-card { background:var(--card); border:1.5px solid var(--line); border-radius:10px; overflow:hidden; transition:transform .25s, box-shadow .25s; display:flex; flex-direction:column; }
+.list-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-md); }
+.list-thumb { position:relative; aspect-ratio:4/3; background:linear-gradient(135deg, var(--paper-2), var(--paper-3)); display:grid; place-items:center; border-bottom:1.5px solid var(--line); }
+.list-thumb svg { width:64%; height:64%; color:var(--line-strong); }
+.list-tag { position:absolute; top:0.8rem; left:0.8rem; display:inline-flex; align-items:center; gap:0.35rem; background:var(--ink); color:var(--paper); font-size:0.66rem; font-weight:700; letter-spacing:0.08em; padding:0.35rem 0.7rem; border-radius:100px; }
+.list-dir { position:absolute; top:0.8rem; right:0.8rem; display:inline-flex; align-items:center; gap:0.3rem; background:rgba(192,138,58,0.95); color:#fff; font-size:0.66rem; font-weight:900; letter-spacing:0.04em; padding:0.35rem 0.6rem; border-radius:100px; }
+.list-body { padding:1.5rem 1.5rem 1.7rem; display:flex; flex-direction:column; flex-grow:1; }
+.list-area { font-size:0.74rem; font-weight:700; letter-spacing:0.1em; color:var(--gold); margin-bottom:0.4rem; }
+.list-body h3 { font-weight:900; font-size:1.1rem; color:var(--ink); margin-bottom:0.7rem; line-height:1.55; }
+.list-spec { display:flex; flex-wrap:wrap; gap:0.4rem 0.9rem; font-size:0.8rem; color:var(--text-muted); margin-bottom:1rem; }
+.list-spec span { display:inline-flex; align-items:center; gap:0.3rem; }
+.list-spec b { color:var(--ink); font-weight:700; }
+.list-read { margin-top:auto; padding-top:1rem; border-top:1.5px dashed var(--line); font-size:0.84rem; color:var(--text); line-height:1.85; }
+.list-read .rl { font-size:0.7rem; font-weight:700; letter-spacing:0.08em; color:var(--gold); display:block; margin-bottom:0.3rem; }
+.list-price { margin-top:1rem; font-size:0.9rem; font-weight:900; color:var(--ink); }
+.list-price small { font-size:0.72rem; font-weight:400; color:var(--text-faint); }
+.listings-note { text-align:center; margin-top:2.6rem; font-weight:700; font-size:1.02rem; color:var(--ink); line-height:1.9; }
+.listings-note .g { color:var(--gold); }
+@media (max-width:860px){ .list-grid{ grid-template-columns:1fr 1fr } }
+@media (max-width:560px){ .list-grid{ grid-template-columns:1fr } }
+
+/* contact-flow（問い合わせの流れ） */
+.cflow { background:rgba(241,237,226,0.88); }
+.cflow-track { max-width:720px; margin:2.8rem auto 0; }
+.cflow-item { display:flex; gap:1.4rem; padding-bottom:2.2rem; position:relative; }
+.cflow-item:not(:last-child)::before { content:''; position:absolute; left:23px; top:48px; bottom:0; width:2px; background:linear-gradient(var(--line-strong), var(--line)); }
+.cflow-num { flex-shrink:0; width:48px; height:48px; border-radius:50%; background:var(--ink); color:var(--paper); display:grid; place-items:center; font-weight:900; font-size:1.05rem; position:relative; z-index:1; }
+.cflow-body { padding-top:0.3rem; }
+.cflow-body h3 { font-weight:900; font-size:1.1rem; color:var(--ink); margin-bottom:0.5rem; display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap; }
+.cflow-time { font-size:0.68rem; font-weight:700; letter-spacing:0.06em; color:var(--gold); background:rgba(192,138,58,0.12); padding:0.2rem 0.6rem; border-radius:100px; }
+.cflow-body p { font-size:0.92rem; color:var(--text-muted); line-height:1.95; }
+.cflow-body p strong { font-weight:700; color:var(--ink); border-bottom:2px solid var(--gold); padding-bottom:1px; }
 </style>
 </head>
 <body>
@@ -326,7 +365,7 @@ body > nav, body > header, body > section, body > footer { position:relative; z-
 
 <nav>
   <a href="#" class="brand"><b>スピ不動産</b><span>SPI ESTATE</span></a>
-  <a href="https://lin.ee/shWa3T7" class="nav-line"><span class="ic">LINE</span><span class="full">運命の住まいを無料診断</span><span class="short">無料診断</span></a>
+  <a href="https://lin.ee/shWa3T7" class="nav-line"><span class="ic">LINE</span><span class="full">吉方位を無料診断</span><span class="short">無料診断</span></a>
 </nav>
 
 <!-- HERO -->
@@ -354,8 +393,8 @@ body > nav, body > header, body > section, body > footer { position:relative; z-
     <div class="hero-kicker">四柱推命 × 九星気学 × 不動産</div>
     <div class="hero-headrow">
       <h1 class="hero-h">
-        運命の住まいは、<br>
-        <span class="u">星に聞く。</span>
+        ことを成す人は、<br>
+        家を<span class="u">「星」</span>で選ぶ。
       </h1>
       <div class="hero-h-illust">
         <svg viewBox="0 0 130 150" fill="none" stroke="#c08a3a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -378,9 +417,6 @@ body > nav, body > header, body > section, body > footer { position:relative; z-
     <p class="hero-sub">
       家を買うのは、人生でいちばん大きな買い物。条件や価格だけでは、なかなか決めきれないものです。今が買い時か、この街でいいか、あなたと相性のいい家はどれか——。私たちは、あなたの生まれ持った星から、ご縁のある一軒と、買うのに良い時期を見立てる不動産屋です。
     </p>
-    <div class="hero-cta">
-      <a href="https://lin.ee/shWa3T7" class="btn-line"><span class="badge">LINE</span>運命の住まいを30秒で無料診断する</a>
-    </div>
   </div>
 </header>
 
@@ -602,6 +638,145 @@ body > nav, body > header, body > section, body > footer { position:relative; z-
   </div>
 </section>
 
+<!-- MENU 鑑定メニュー -->
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="narrow reveal" style="margin:0 auto;">
+      <span class="sicon center-i"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 10 H34 Q36 10 36 12 V38 Q36 40 34 40 H14 Q12 40 12 38 V12 Q12 10 14 10 Z"/><path d="M18 18 H30 M18 24 H30 M18 30 H26"/><path d="M24 6 Q26 9 24 11 Q22 9 24 6"/></svg></span>
+      <h2 class="talk-h center-h">鑑定の、おしながき。</h2>
+      <p class="talk-p center-p">ご相談の段階に合わせて、見立てのかたちをご用意しています。まずは無料の方位鑑定から。気になる物件が出てきたら、その物件との相性まで深く見ていきます。</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card reveal">
+        <div class="m-no">MENU 01</div>
+        <div class="menu-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="16"/><path d="M24 8 V40 M8 24 H40"/><path d="M30 18 L26 26 L18 30 L22 22 Z" fill="#c08a3a" stroke="none"/></svg></div>
+        <h3>吉方位 鑑定</h3>
+        <p>生年月日から、四柱推命と九星気学であなたの吉方位・買い時を見立てます。「どこの街で探すといいか」「今が動く時か」の地図を、まず手にしていただくための鑑定です。</p>
+        <div class="menu-fee"><span class="lbl">費用</span><span class="val">無料</span></div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="m-no">MENU 02</div>
+        <div class="menu-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 24 L24 13 L36 24"/><path d="M15 22 V37 H33 V22"/><path d="M21 37 V29 H27 V37"/><path d="M24 6 Q26 9 24 11 Q22 9 24 6"/><circle cx="24" cy="24" r="2.4" fill="#c08a3a" stroke="none"/></svg></div>
+        <h3>物件 相性鑑定</h3>
+        <p>気になる物件の方位・間取り・土地の気を、あなたの星と照らし合わせて診断します。家相の知恵も交え、住むほど・持つほど運を育む一軒かどうかを見極めます。</p>
+        <div class="menu-fee"><span class="lbl">費用</span><span class="val">物件探しとあわせて無料</span></div>
+      </div>
+      <div class="menu-card reveal">
+        <div class="m-no">MENU 03</div>
+        <div class="menu-ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 26 L18 22 L24 25 L30 22 L38 26"/><path d="M14 24 V36 H34 V24"/><path d="M24 25 V33"/><path d="M20 14 Q24 18 28 14"/><path d="M24 6 Q26 9 24 11 Q22 9 24 6"/></svg></div>
+        <h3>住まい さがし鑑定</h3>
+        <p>運気と条件、その両方が揃う住まいを、ご一緒に探します。物件の提案から、相場・資金・契約まわりの実務まで。星を読みながら、地に足のついた一軒選びまで伴走します。</p>
+        <div class="menu-fee"><span class="lbl">費用</span><span class="val">ご成約時の仲介手数料のみ</span></div>
+      </div>
+    </div>
+    <p class="menu-note">鑑定・ご相談・物件のご提案は、すべて無料です。<br>費用をいただくのは、売買がご成約に至ったときの仲介手数料のみ。くわしい料金は、ご相談のなかでお伝えします。</p>
+  </div>
+</section>
+
+<!-- LISTINGS 紹介物件 -->
+<section class="listings" id="listings">
+  <div class="wrap">
+    <div class="narrow reveal" style="margin:0 auto;">
+      <span class="sicon center-i"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 24 L24 10 L40 24"/><path d="M12 21 V39 H36 V21"/><path d="M19 39 V28 H29 V39"/><path d="M24 4 Q27 8 24 11 Q21 8 24 4"/></svg></span>
+      <h2 class="talk-h center-h">運の巡る、住まいたち。</h2>
+      <p class="talk-p center-p">条件のよさだけでなく、土地の気や方位の相性まで見て選んだ住まいを、少しだけご紹介します。あなたの星に合うかどうかは、診断してはじめてわかります。</p>
+    </div>
+    <div class="list-grid">
+      <div class="list-card reveal">
+        <div class="list-thumb">
+          <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 42 L40 22 L64 42"/><path d="M22 38 V60 H58 V38"/><path d="M34 60 V46 H46 V60"/><path d="M40 14 Q44 19 40 23 Q36 19 40 14"/></svg>
+          <span class="list-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 3v18M8 7h6a2.5 2.5 0 010 5H9a2.5 2.5 0 000 5h7"/></svg>戸建</span>
+          <span class="list-dir">高台・吉</span>
+        </div>
+        <div class="list-body">
+          <div class="list-area">東京・城南エリア</div>
+          <h3>「台」のつく丘の上、<br>気の落ち着く家。</h3>
+          <div class="list-spec"><span>間取り <b>4LDK</b></span><span>土地 <b>約42坪</b></span><span>築 <b>浅</b></span></div>
+          <div class="list-read"><span class="rl">▶ 気の見立て</span>古くから気が安定するとされる高台の角地。北に緑、東に開けた地形で、腰を据えて構えるのに向いた土地です。</div>
+          <div class="list-price">価格 <small>ご相談にて／LINEでお問い合わせください</small></div>
+        </div>
+      </div>
+      <div class="list-card reveal">
+        <div class="list-thumb">
+          <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="14" width="40" height="52" rx="2"/><path d="M28 24 H38 M42 24 H52 M28 34 H38 M42 34 H52 M28 44 H38 M42 44 H52"/><path d="M36 66 V56 H44 V66"/></svg>
+          <span class="list-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="1"/></svg>マンション</span>
+          <span class="list-dir">南向き・旺</span>
+        </div>
+        <div class="list-body">
+          <div class="list-area">東京・都心エリア</div>
+          <h3>光と風の通る、<br>南面の高層階。</h3>
+          <div class="list-spec"><span>間取り <b>2LDK</b></span><span>専有 <b>約68㎡</b></span><span>階 <b>高層</b></span></div>
+          <div class="list-read"><span class="rl">▶ 気の見立て</span>南に水と道、四方の抜けがよく、気が巡りやすい立地。事業や商いの「動き」を後押しする方位取りです。</div>
+          <div class="list-price">価格 <small>ご相談にて／LINEでお問い合わせください</small></div>
+        </div>
+      </div>
+      <div class="list-card reveal">
+        <div class="list-thumb">
+          <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 40 L40 18 L66 40"/><path d="M20 36 V62 H60 V36"/><path d="M32 62 V48 H48 V62"/><path d="M30 30 H34 M46 30 H50"/><path d="M40 10 Q44 15 40 19 Q36 15 40 10"/></svg>
+          <span class="list-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 3v18M8 7h6a2.5 2.5 0 010 5H9a2.5 2.5 0 000 5h7"/></svg>戸建</span>
+          <span class="list-dir">四神相応</span>
+        </div>
+        <div class="list-body">
+          <div class="list-area">東京・武蔵野エリア</div>
+          <h3>北に山、東に川。<br>守りに囲まれた地。</h3>
+          <div class="list-spec"><span>間取り <b>5LDK</b></span><span>土地 <b>約55坪</b></span><span>庭 <b>あり</b></span></div>
+          <div class="list-read"><span class="rl">▶ 気の見立て</span>四方を地形の守りに囲まれた「四神相応」に近い土地取り。代々住み継ぐ家を構えたい方に向く、気の集まる一画です。</div>
+          <div class="list-price">価格 <small>ご相談にて／LINEでお問い合わせください</small></div>
+        </div>
+      </div>
+    </div>
+    <p class="listings-note">ご紹介できる住まいは、ほかにもございます。<br><span class="g">あなたの星に合う一軒</span>を、診断のうえでお探しします。</p>
+  </div>
+</section>
+
+<!-- CONTACT FLOW 問い合わせの流れ -->
+<section class="cflow" id="flow">
+  <div class="wrap">
+    <div class="narrow reveal" style="margin:0 auto;">
+      <span class="sicon center-i"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14 Q8 12 10 10 L30 10 Q32 12 30 14 L30 30 Q32 32 30 34 L18 34 L12 40 L12 34 L10 34 Q8 32 10 30 Z"/><path d="M15 18 H25 M15 24 H22"/></svg></span>
+      <h2 class="talk-h center-h">お問い合わせから、<br>住まい探しまで。</h2>
+      <p class="talk-p center-p">むずかしい手続きはありません。LINEひとつで、鑑定からご提案まで、ゆっくり進められます。急かすことは、いたしません。</p>
+    </div>
+    <div class="cflow-track reveal">
+      <div class="cflow-item">
+        <div class="cflow-num">1</div>
+        <div class="cflow-body">
+          <h3>LINEで友だち追加 <span class="cflow-time">30秒</span></h3>
+          <p>まずは公式LINEを友だち追加してください。お名前や細かな個人情報は、この時点では必要ありません。</p>
+        </div>
+      </div>
+      <div class="cflow-item">
+        <div class="cflow-num">2</div>
+        <div class="cflow-body">
+          <h3>生年月日とご希望を送る <span class="cflow-time">1分</span></h3>
+          <p>生年月日と、「買いたい／売りたい／まだ迷っている」などのご希望を送るだけ。<strong>まだ決まっていなくても、構いません。</strong></p>
+        </div>
+      </div>
+      <div class="cflow-item">
+        <div class="cflow-num">3</div>
+        <div class="cflow-body">
+          <h3>無料の吉方位鑑定が届く <span class="cflow-time">後日</span></h3>
+          <p>あなたの吉方位と、動くべき時期を見立ててお届けします。気になる物件があれば、その相性もあわせて鑑定します。</p>
+        </div>
+      </div>
+      <div class="cflow-item">
+        <div class="cflow-num">4</div>
+        <div class="cflow-body">
+          <h3>住まいのご提案・ご相談 <span class="cflow-time">じっくり</span></h3>
+          <p>鑑定をふまえ、運気と条件の揃う住まいをご提案します。相場や資金、契約のご相談も、このなかで承ります。</p>
+        </div>
+      </div>
+      <div class="cflow-item">
+        <div class="cflow-num">5</div>
+        <div class="cflow-body">
+          <h3>ご納得のうえで、ご契約 <span class="cflow-time">ご縁が整えば</span></h3>
+          <p>現実の安心と運気の納得、その両方が揃ったときに、はじめてお進めします。<strong>急かすことは、決していたしません。</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- STEPS -->
 <section class="steps">
   <div class="wrap">
@@ -633,39 +808,12 @@ body > nav, body > header, body > section, body > footer { position:relative; z-
   </div>
 </section>
 
-<!-- ASSURE -->
-<section class="assure">
-  <div class="wrap">
-    <div class="narrow reveal" style="margin:0 auto;">
-      <span class="sicon center-i"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20 C14 14 20 12 24 14 C28 12 34 14 32 20 C34 22 33 26 30 26 L30 34 L18 34 L18 26 C15 26 14 22 16 20 Z"/><circle cx="21" cy="21" r="1.4"/><circle cx="27" cy="21" r="1.4"/><path d="M22 26 Q24 28 26 26"/><path d="M18 34 L18 38 M30 34 L30 38 M24 34 L24 38"/></svg></span>
-      <h2 class="talk-h center-h">しつこい営業は、<br>一切しません。</h2>
-    </div>
-    <div class="assure-grid">
-      <div class="a-card reveal">
-        <div class="a-ic"><svg viewBox="0 0 48 48" fill="none" stroke="#c08a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="17"/><path d="M17 19 V29 M17 24 H23 M27 19 L31 24 L27 29 M31 19 V29"/></svg></div>
-        <div class="a-t">ぜんぶ無料</div>
-        <div class="a-d">鑑定もご相談も無料です。費用をいただくのは、売買が成立したときの仲介手数料のみ。まずは知るだけ、で構いません。</div>
-      </div>
-      <div class="a-card reveal">
-        <div class="a-ic"><svg viewBox="0 0 48 48" fill="none" stroke="#c08a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="17"/><path d="M13 13 L35 35"/></svg></div>
-        <div class="a-t">勧誘しません</div>
-        <div class="a-d">こちらから契約を急かすことはありません。お忙しい方が多いので、連絡の頻度もご都合に合わせます。</div>
-      </div>
-      <div class="a-card reveal">
-        <div class="a-ic"><svg viewBox="0 0 48 48" fill="none" stroke="#c08a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 26 L18 22 L24 25 L30 22 L38 26"/><path d="M14 24 V34 H34 V24"/><path d="M24 25 V33"/><path d="M20 14 Q24 18 28 14"/></svg></div>
-        <div class="a-t">占いが苦手でもOK</div>
-        <div class="a-d">鑑定は「もう一つの判断材料」。信じる・信じないは、ご自身で決めてください。実務のサポートだけでも歓迎します。</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- LINE CTA -->
 <section class="linecta">
   <div class="bg-cut" style="right:4%;top:50%;transform:translateY(-50%);width:240px;height:240px;color:#fff;"><svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 40 Q60 30 100 40 M24 38 V44 M96 38 V44"/><path d="M30 44 H90 L84 56 H36 Z"/><path d="M36 56 V92 H84 V56"/><path d="M54 56 V92 M66 56 V92 M36 74 H84"/><path d="M60 18 V30 M54 22 H66"/><ellipse cx="60" cy="14" rx="6" ry="7"/></svg></div>
   <div class="wrap">
-    <h2>今が買い時か、<br><span class="g">30秒</span>でわかります。</h2>
-    <p>生年月日を送るだけで、あなたの買い時・売り時と、運の巡る吉方位を無料で見立てます。売る・買うが決まっていなくても、構いません。動く前に、ご自身の「時」を知っておくこと。それが、後悔しない決断の第一歩です。</p>
+    <h2>スピリチュアル鑑定<span class="g">×</span>物件紹介</h2>
+    <p>ことを成す人ほど、家えらびに「時」と「方位」を重ねます。生年月日をお送りいただければ、あなたの買い時・売り時と、運の巡る吉方位を無料で見立てます。売る・買うが決まっていなくても、構いません。動く前に、ご自身の「時」を知っておくこと。それが、後悔しない決断の第一歩です。</p>
     <div class="linecta-steps">
       <span class="lc-step"><span class="nn">1</span>LINE追加</span>
       <span class="lc-sep">→</span>
@@ -673,8 +821,8 @@ body > nav, body > header, body > section, body > footer { position:relative; z-
       <span class="lc-sep">→</span>
       <span class="lc-step"><span class="nn">3</span>鑑定が届く</span>
     </div>
-    <a href="https://lin.ee/shWa3T7" class="btn-line"><span class="badge">LINE</span>運命の住まいを30秒で無料診断する</a>
-    <p class="note">所要30秒／完全無料／お忙しい方も気軽に</p>
+    <a href="https://lin.ee/shWa3T7" class="btn-line"><span class="badge">LINE</span>LINE追加はこちら</a>
+    <p class="note">完全無料／勧誘なし／お忙しい方も気軽に</p>
   </div>
 </section>
 
@@ -723,8 +871,11 @@ body > nav, body > header, body > section, body > footer { position:relative; z-
         <div class="foot-col">
           <h5>Menu</h5>
           <a href="#story">考え方</a>
+          <a href="#menu">鑑定メニュー</a>
+          <a href="#listings">紹介物件</a>
+          <a href="#flow">ご相談の流れ</a>
           <a href="#faq">よくある質問</a>
-          <a href="https://lin.ee/shWa3T7">運命の住まいを無料診断</a>
+          <a href="https://lin.ee/shWa3T7">吉方位を無料診断</a>
         </div>
         <div class="foot-col">
           <h5>Company</h5>
@@ -740,13 +891,6 @@ body > nav, body > header, body > section, body > footer { position:relative; z-
     </div>
   </div>
 </footer>
-
-<div class="sticky" id="sticky">
-  <div class="sticky-inner">
-    <a href="https://lin.ee/shWa3T7"><span class="badge">LINE</span>運命の住まいを30秒で無料診断する</a>
-    <div class="mc">生年月日だけでOK／無料／勧誘なし</div>
-  </div>
-</div>
 
 <script>
 if('scrollRestoration' in history) history.scrollRestoration='manual';
@@ -767,14 +911,6 @@ const io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isI
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 
 document.querySelectorAll('.faq-q').forEach(function(q){q.addEventListener('click',function(){q.parentElement.classList.toggle('open');});});
-
-(function(){
-  const bar=document.getElementById('sticky'), hero=document.querySelector('.hero');
-  if(!bar) return;
-  if(hero) new IntersectionObserver(function(es){
-    if(!es[0].isIntersecting) bar.classList.add('show'); else bar.classList.remove('show');
-  },{threshold:0}).observe(hero);
-})();
 </script>
 </body>
 </html>
