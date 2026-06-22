@@ -93,7 +93,7 @@ nav { position:sticky; top:0; z-index:60; display:flex; justify-content:space-be
 .hero { padding:clamp(4.5rem,10vw,8rem) 0 clamp(4rem,8vw,6.5rem); position:relative; overflow:hidden; background:#ffffff; }
 .hero .wrap { position:relative; z-index:2; }
 .hero-kicker { display:inline-block; font-size:0.78rem; font-weight:700; letter-spacing:0.16em; color:var(--gold); margin-bottom:1.6rem; }
-.hero-h { font-weight:900; font-size:clamp(2.5rem,6.4vw,4.2rem); line-height:1.45; letter-spacing:0.02em; color:var(--ink); margin-bottom:1.6rem; }
+.hero-h { font-weight:900; font-size:clamp(2.3rem,6.4vw,4.2rem); line-height:1.45; letter-spacing:0.02em; color:var(--ink); margin-bottom:1.6rem; word-break:keep-all; line-break:strict; overflow-wrap:normal; }
 .hero-h .u { background:linear-gradient(transparent 64%, rgba(192,138,58,0.32) 64%); }
 .hero-sub { font-size:1.05rem; color:var(--text); line-height:2.1; max-width:560px; margin-bottom:0; }
 .hero-cta { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; }
@@ -199,7 +199,7 @@ nav { position:sticky; top:0; z-index:60; display:flex; justify-content:space-be
 .linecta { background:var(--ink); color:var(--paper); text-align:center; position:relative; overflow:hidden; }
 .linecta .wrap { max-width:680px; position:relative; z-index:2; }
 .linecta .kicker { color:var(--gold-soft); }
-.linecta h2 { font-weight:900; font-size:clamp(1.6rem,4vw,2.4rem); color:#fff; line-height:1.6; margin-bottom:1.2rem; }
+.linecta h2 { font-weight:900; font-size:clamp(1.5rem,4vw,2.4rem); color:#fff; line-height:1.55; margin-bottom:1.2rem; word-break:keep-all; line-break:strict; overflow-wrap:normal; }
 .linecta h2 .g { color:var(--gold-soft); }
 .linecta p { color:rgba(255,255,255,0.78); line-height:2; margin-bottom:2.2rem; }
 .linecta-steps { display:flex; align-items:center; justify-content:center; gap:0.7rem; flex-wrap:wrap; margin-bottom:2rem; }
@@ -274,7 +274,7 @@ body > nav, body > header, body > section, body > footer { position:relative; z-
 .sicon svg { width:100%; height:100%; }
 
 /* talk (語り口セクション共通) */
-.talk-h { font-weight:900; font-size:clamp(1.4rem,3.6vw,2rem); line-height:1.6; color:var(--ink); letter-spacing:0.02em; margin-bottom:1.4rem; }
+.talk-h { font-weight:900; font-size:clamp(1.4rem,3.6vw,2rem); line-height:1.6; color:var(--ink); letter-spacing:0.02em; margin-bottom:1.4rem; word-break:keep-all; line-break:strict; overflow-wrap:normal; }
 .talk-h.center-h { text-align:center; }
 .talk-p { font-size:1.02rem; line-height:2.25; color:var(--text); margin-bottom:1.5rem; }
 .talk-p.center-p { text-align:center; margin-left:auto; margin-right:auto; }
@@ -812,7 +812,7 @@ body > nav, body > header, body > section, body > footer { position:relative; z-
 <section class="linecta">
   <div class="bg-cut" style="right:4%;top:50%;transform:translateY(-50%);width:240px;height:240px;color:#fff;"><svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 40 Q60 30 100 40 M24 38 V44 M96 38 V44"/><path d="M30 44 H90 L84 56 H36 Z"/><path d="M36 56 V92 H84 V56"/><path d="M54 56 V92 M66 56 V92 M36 74 H84"/><path d="M60 18 V30 M54 22 H66"/><ellipse cx="60" cy="14" rx="6" ry="7"/></svg></div>
   <div class="wrap">
-    <h2>スピリチュアル鑑定<span class="g">×</span>物件紹介</h2>
+    <h2>スピリチュアル鑑定<br><span class="g">×</span> 物件紹介</h2>
     <p>ことを成す人ほど、家えらびに「時」と「方位」を重ねます。生年月日をお送りいただければ、あなたの買い時・売り時と、運の巡る吉方位を無料で見立てます。売る・買うが決まっていなくても、構いません。動く前に、ご自身の「時」を知っておくこと。それが、後悔しない決断の第一歩です。</p>
     <div class="linecta-steps">
       <span class="lc-step"><span class="nn">1</span>LINE追加</span>
